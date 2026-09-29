@@ -33,7 +33,7 @@ const handleSubmit=async()=>{
             format:formatvalue
         }
     }
-        const downloadurl=await axios.post("http://https://tubedown-django.onrender.com/api/download/",senddata)
+        const downloadurl=await axios.post("https://tubedown-django.onrender.com/api/download/",senddata)
     console.log("Download URL:", downloadurl.data);
     const taskId = downloadurl?.data.task_id;
     console.log("Task ID:", taskId);
