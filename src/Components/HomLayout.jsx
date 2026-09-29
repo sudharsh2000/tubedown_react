@@ -33,7 +33,7 @@ const handleSubmit=async()=>{
             format:formatvalue
         }
     }
-        const downloadurl=await axios.post("http://localhost:8000/api/download/",senddata)
+        const downloadurl=await axios.post("http://https://tubedown-django.onrender.com/api/download/",senddata)
     console.log("Download URL:", downloadurl.data);
     const taskId = downloadurl?.data.task_id;
     console.log("Task ID:", taskId);
@@ -42,7 +42,7 @@ const handleSubmit=async()=>{
 
     while (!completed) {
       const statusResponse = await axios.get(
-        `http://localhost:8000/api/download/status/${taskId}/`
+        `https://tubedown-django.onrender.com/api/download/status/${taskId}/`
       );
 
       const status = statusResponse.data.status;
@@ -66,7 +66,7 @@ const handleSubmit=async()=>{
 
     // 3. Get actual file
     const fileResponse = await axios.get(
-      `http://localhost:8000/api/download/file/${taskId}/`,
+      `https://tubedown-django.onrender.com/api/download/file/${taskId}/`,
       {
         responseType: "blob",
       }
@@ -80,7 +80,7 @@ const handleSubmit=async()=>{
     const link = document.createElement("a");
 
     link.href = downloadUrl;
-    link.download = `video${title}.mp4`;
+    link.download = `video_${title}.mp4`;
 
     document.body.appendChild(link);
 
